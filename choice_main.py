@@ -1,6 +1,8 @@
 # -*- coding: UTF-8 -*-
-import Playfair,Vigenere,Hill
-
+import Hill
+import Playfair
+import Vigenere
+import Monoalphabetic
 
 def playfair_menu():
     while True:
@@ -117,6 +119,41 @@ def hill_menu():
             print("选择出错！")
 
 
+def monoalphabetic_menu():
+    while True:
+        print("-----单表代替密码-----")
+        print("请选择你要进行的操作：")
+        print("1.单表代替密码简介")
+        print("2.单表代替密码加密")
+        print("3.单表代替密码解密")
+        print("4.返回上一级")
+        crypto_operating = input("->")
+        if crypto_operating == '1':
+            Monoalphabetic.monoalphabetic_info()
+        elif crypto_operating == '2':
+            print("----------------------单表代替加密----------------------")
+            print("请输入您的明文：")
+            plain_text = input()
+            print("请输入您的密钥：(密钥应为合法英文单词)")
+            key = input()
+            print("加密正在进行。。。")
+            print("加密成功！")
+            print("密文为：" + Monoalphabetic.monoalphabetic_encrypt(plain_text, key))
+        elif crypto_operating == '3':
+            print("----------------------单表代替加密----------------------")
+            print("请输入您的密文：")
+            enc_text = input()
+            print("请输入您的密钥：(密钥应为合法英文单词)")
+            key = input()
+            print("解密正在进行。。。")
+            print("解密成功！")
+            print("明文为：" + Monoalphabetic.monoalphabetic_decrypt(enc_text, key))
+        elif crypto_operating == '4':
+            return
+        else:
+            print("选择出错！")
+
+
 def main_menu():
     while True:
         print("--------主菜单--------")
@@ -124,7 +161,8 @@ def main_menu():
         print("1.Playfair密码")
         print("2.Vigenere密码")
         print("3.Hill密码")
-        print("4.退出")
+        print("4.单表代替密码")
+        print("5.退出")
         crypto_type = input("->")
         if crypto_type == '1':
             playfair_menu()
@@ -133,6 +171,8 @@ def main_menu():
         elif crypto_type == '3':
             hill_menu()
         elif crypto_type == '4':
+            monoalphabetic_menu()
+        elif crypto_type == '5':
             return
         else:
             print("选择出错！")
