@@ -29,9 +29,9 @@ def playfair_encrypt(plain_text, key):
     enc_text_list = []
     plain_text = text_slove(plain_text)
     for i in range(0, len(plain_text), 2):
-        x_1 = key_matrix.index(plain_text[i]) / 5
+        x_1 = key_matrix.index(plain_text[i]) // 5
         y_1 = key_matrix.index(plain_text[i]) % 5
-        x_2 = key_matrix.index(plain_text[i + 1]) / 5
+        x_2 = key_matrix.index(plain_text[i + 1]) // 5
         y_2 = key_matrix.index(plain_text[i + 1]) % 5
         if x_1 != x_2 and y_1 != y_2:
             enc_text_list.append(key_matrix[x_1 * 5 + y_2])
@@ -62,9 +62,9 @@ def playfair_decrypt(enc_text, key):
     if len(enc_text) % 2 != 0:
         return 40001
     for i in range(0, len(enc_text), 2):
-        x_1 = key_matrix.index(enc_text[i]) / 5
+        x_1 = key_matrix.index(enc_text[i]) // 5
         y_1 = key_matrix.index(enc_text[i]) % 5
-        x_2 = key_matrix.index(enc_text[i + 1]) / 5
+        x_2 = key_matrix.index(enc_text[i + 1]) // 5
         y_2 = key_matrix.index(enc_text[i + 1]) % 5
         if x_1 != x_2 and y_1 != y_2:
             plain_text_list.append(key_matrix[x_1 * 5 + y_2])
