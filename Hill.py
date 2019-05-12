@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 from sympy import *
 
-
 def hill_encrypt(plain_text, key, n):
     plain_text = ''.join(plain_text.split())
     key_data = []
